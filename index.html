@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="./public/style.css">
     <title>Thermostat</title>
   </head>
   <body>
@@ -18,7 +19,7 @@
 
       </p>
     </section>
-    <script src="./jasmine-standalone-3.4.0/src/Thermostat.js"></script>
+    <script src="./src/Thermostat.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
       $( document ).ready(function() {
@@ -28,11 +29,16 @@
 
         function updateTemperature() {
         $('#temperature').text(thermostat.temp);
+        $('#temperature').attr('class', thermostat.isUsageRating());
         }
 
         function getValue(){
           var user_value = document.getElementById('diff_amount').value;
           return parseInt(user_value);
+        }
+
+        function updatePS() {
+        $('#power-saving-status').text(thermostat.isPowerSaving());
         }
 
         $('#temperature-up').click(function() {
@@ -45,9 +51,15 @@
           updateTemperature();
         })
 
-        $('#temperature-reset')
+        $('#temperature-reset').click(function(){
+          thermostat.reset();
+          updateTemperature();
+        })
 
-
+        $('#toggle-powersaving').click(function(){
+          thermostat.togglePowerSaving();
+          updatePS();
+        })
       });
     </script>
   </body>

@@ -25,7 +25,11 @@ Thermostat.prototype.down = function(number){
 }
 
 Thermostat.prototype.isPowerSaving = function(){
-  return this.powerSaving
+  if (this.powerSaving === true) {
+    return 'on';
+  } else {
+    return 'off';
+  }
 }
 
 Thermostat.prototype.togglePowerSaving = function(){
