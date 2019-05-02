@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thermostat</title>
+  </head>
+  <body>
+    <section>
+      <h1 id="temperature"></h1>
+      <p>
+        <input id="diff_amount" type="number" name="degrees" value="">
+        <button id="temperature-up">+</button>
+        <button id="temperature-down">-</button>
+        <br>
+        <button id="temperature-reset">reset</button>
+        <br>
+        power saving mode is <span id="power-saving-status">on</span>
+        <button id="toggle-powersaving">PSM on/off</button>
+
+      </p>
+    </section>
+    <script src="./jasmine-standalone-3.4.0/src/Thermostat.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+      $( document ).ready(function() {
+
+        var thermostat = new Thermostat();
+        updateTemperature();
+
+        function updateTemperature() {
+        $('#temperature').text(thermostat.temp);
+        }
+
+        function getValue(){
+          var user_value = document.getElementById('diff_amount').value;
+          return parseInt(user_value);
+        }
+
+        $('#temperature-up').click(function() {
+          thermostat.up(getValue());
+          updateTemperature();
+        })
+
+        $('#temperature-down').click(function(){
+          thermostat.down(getValue());
+          updateTemperature();
+        })
+
+        $('#temperature-reset')
+
+
+      });
+    </script>
+  </body>
+</html>
