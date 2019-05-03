@@ -26,6 +26,7 @@ You can ask about the thermostat's current energy usage: < 18 is low-usage, < 25
 * Visit the full path of the ```index.html``` file.
 * Enter a town/city/region in the submit entry box to check the REAL LIVE temperature in that place.
 * Enter a number in the number box and add or subtract it to the thermostat temperature.
+
 *DISCLAIMER: WILL NOT ALTER THE AMBIENT TEMPERATURE OF THE BUILDING IN WHICH IT IS USED*
 
 ![SS1](https://github.com/wemsteral/Thermostat/blob/master/SS1.png)
