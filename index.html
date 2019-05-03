@@ -1,34 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
     <link rel="stylesheet" href="./public/style.css">
     <title>Thermostat</title>
   </head>
+  <div class=flex>
   <body>
     <section>
-      <h1 id="temperature"></h1>
-      <p>
-        <input id="diff_amount" type="number" name="degrees" value="">
+
+<div style="clear:both"></div>
+      <h1>Current temperature: <span id="current-temperature"></span></h1>
+      <form id="select-city">
+      <input class="enter-city" id="current-city" type="text" placeholder="Enter a city"></input>
+      <input class="submit" type="submit"></input>
+      </form>
+
+
+
+        <h3 id="temperature"></h3>
+        <input class='degrees' id="diff_amount" type="number" name="degrees" value="">
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
         <br>
         <button id="temperature-reset">reset</button>
-        <br>
-        power saving mode is <span id="power-saving-status">on</span>
-        <button id="toggle-powersaving">PSM on/off</button>
+        <button id="toggle-powersaving">PSM</button>
 
-      </p>
+      <br>
+        <p>Power Saving Mode: <span id="power-saving-status">on</span></p>
+
+
     </section>
+  </div>
     <script src="./src/Thermostat.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
       $( document ).ready(function() {
 
+        displayWeather('London');
+
+        function displayWeather(city) {
+          var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+          var token = '&appid=a3d9eb01d4de82b9b8d0849ef604dbed';
+          var units = '&units=metric';
+          $.get(url + token + units, function(data){
+            $('#current-temperature').text(data.main.temp + "°C");
+          })
+        }
+
+        $('#select-city').submit(function(event){
+          event.preventDefault();
+          var city = $('#current-city').val();
+          displayWeather(city);
+        })
+
         var thermostat = new Thermostat();
         updateTemperature();
 
         function updateTemperature() {
-        $('#temperature').text(thermostat.temp);
+        $('#temperature').text(thermostat.temp + " °C");
         $('#temperature').attr('class', thermostat.isUsageRating());
         }
 

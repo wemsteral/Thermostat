@@ -1,6 +1,4 @@
 
-
-
 .low-usage {
   color: green;
 }
@@ -11,4 +9,110 @@
 
 .high-usage {
   color: red;
+}
+
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div {
+}
+
+body {
+  background-color: #d24dff;
+}
+
+input {
+  width:100px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+input.enter-city {
+  font-family: 'Press Start 2P', cursive;
+  width: 200px;
+}
+
+input[type="submit"]{
+  background: inherit;
+ }
+
+input.degrees {
+  width:100px;
+  height:100px;
+  line-height:100px;
+  margin: 10px;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:bold;
+  position:static
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+a {
+  color:#333;
+  text-decoration:none;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 30px;
+  margin-bottom: 0px;
+
+}
+
+h3 {
+  float: right;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 20px;
+
+}
+
+form {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+p {
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Press Start 2P', cursive;
+
+}
+
+body {
+  padding:0px 20px;
+  background: #F4F5EE;
+  
+}
+
+.flex {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+button {
+  width:100px;
+  height:100px;
+  line-height:100px;
+  margin: 10px;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:bold;
+  position:static
+  font-family: 'Press Start 2P', cursive;
+
+  }
 }
