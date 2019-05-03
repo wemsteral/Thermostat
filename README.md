@@ -19,6 +19,7 @@ You can ask about the thermostat's current energy usage: < 18 is low-usage, < 25
 
 * The logic was written in Javascript within a single constructor that 'owns' various prototype functions.
 * The app was made interactive with JQuery.
+* Fully tested with Jasmine.
 
 ### How to run
 
